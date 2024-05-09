@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //give base URL
-const baseURL='http://localhost:3000/api';
+const baseURL='https://wastemanagement-be.onrender.com';
 
 const instance =axios.create({
     baseURL: baseURL,
