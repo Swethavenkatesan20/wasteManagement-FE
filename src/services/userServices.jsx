@@ -11,13 +11,16 @@ login: async (email, password) => {
         }, { withCredentials: true });
     },
     // define the register method
-    register: async (name, email, password, location) => {
+    register: async (name, email, password, location,proof,proofId) => {
         // make a POST request to the register endpoint
         return instance.post('/users/register', {
             name: name,
             email: email,
             password: password,
-            location: location
+            location: location,
+            proof: proof,
+            proofId: proofId
+
         });
     },
     // define the logout method
@@ -29,6 +32,9 @@ login: async (email, password) => {
     getCurrentUser: async () => {
         // make a GET request to the current user endpoint
         return protectedInstance.get('/users/profile');
+    },
+    getToken: () => {
+        return localStorage.getItem('token');
     }
 };
 
