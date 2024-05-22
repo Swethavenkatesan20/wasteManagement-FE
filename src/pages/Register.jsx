@@ -15,11 +15,13 @@ const navigate=useNavigate();
         const email = e.target[1].value;
         const password = e.target[2].value;
         const location = e.target[3].value;
+        const proof= e.target[4].value;
+        const proofId= e.target[5].value;
 
         //console.log(name,email,password,location);
             
         //send details to api 
-        userServices.register(name,email,password,location)
+        userServices.register(name,email,password,location,proof,proofId)
 
         .then(response => {
             // clear the form
@@ -54,6 +56,12 @@ const navigate=useNavigate();
             </div>
             <div className='mb-3'> 
                 <input type="text" placeholder='Location..'/>
+            </div>
+            <div className='mb-3'> 
+                <input type="text" placeholder='enter id proof name'/>
+            </div>
+            <div className='mb-3'> 
+                <input type="text" placeholder='enter id proof value'/>
             </div>
             <button type='submit'>Register</button>
             <p>Already have an account ? <Link to='/login'>Login</Link> </p>
